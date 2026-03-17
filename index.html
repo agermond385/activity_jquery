@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_jquery</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+
+
+<script src="scripts/jquery-3.7.1.min.js"></script>
+
+<script>
+if (typeof jQuery == "undefined") {
+  document.write('<script src="https://code.jquery.com/jquery-3.7.1.min.js"><\/script>');
+}
+</script>
+
+<script src="scripts/jquery.validate.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+  // Should change summary paragraph text color
+  $("#summary").css("color", "blue");
+
+  // jQuery Validation plugin
+  $("#contactForm").validate({
+    rules: {
+      name: "required",
+      email: {
+        required: true,
+        email: true
+      },
+      message: "required"
+    },
+    messages: {
+      name: "Please enter your name",
+      email: "Please enter a valid email",
+      message: "Please enter a message"
+    }
+  });
+
+});
+</script>
+
+</head>
+
+<body>
+    <header>
+    <h1>Common Uses of jQuery</h1>
+    </header>
+
+    <main>
+
+    <p id="summary">
+     jQuery is a feature-rich JavaScript library for manipulating page elements,
+     validating forms, creating animations, handling events, and much more. It is used 
+     quite commonly on popular sites and is incredibly useful to developers 
+     because it simplifies working with HTML.
+    </p>
+  
+    
+  <p>
+<a href="https://jqueryvalidation.org/" target="_blank">
+jQuery Validation Plugin
+</a>
+</p>
+
+<form id="contactForm">
+
+<label for="name">Name</label>
+<input type="text" id="name" name="name" required>
+
+<br><br>
+
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required>
+
+<br><br>
+
+<label for="message">Message</label>
+<textarea id="message" name="message" required></textarea>
+
+<br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</main>
+
+
+</body>
+</html>
